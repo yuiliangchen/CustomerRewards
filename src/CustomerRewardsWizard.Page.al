@@ -251,11 +251,13 @@ page 50100 "Customer Rewards Wizard"
     local procedure FinishAndEnableCustomerRewards();
     var
         CustomerRewardsExtMgt: Codeunit "Customer Rewards Ext Mgt";
-        GuidedExperience: Codeunit "Guided Experience";
+        //GuidedExperience: Codeunit "Guided Experience";
+        GuidedExperience: Codeunit "Assisted Setup";
         Info: ModuleInfo;
     begin
         NavApp.GetCurrentModuleInfo(Info);
-        GuidedExperience.CompleteAssistedSetup(ObjectType::Page,PAGE::"Customer Rewards Wizard");
+        //GuidedExperience.CompleteAssistedSetup(ObjectType::Page,PAGE::"Customer Rewards Wizard");
+        GuidedExperience.IsComplete(PAGE::"Customer Rewards Wizard");
         CurrPage.Close();
         CustomerRewardsExtMgt.OpenRewardsLevelPage();
     end;
